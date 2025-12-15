@@ -28,8 +28,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var url = Environment.GetEnvironmentVariable("FUNCIONARIOS_API_URL");
-builder.WebHost.UseUrls(url ?? "http://localhost:5001");
+builder.WebHost.UseUrls("http://localhost:5001");
 
 var app = builder.Build();
 

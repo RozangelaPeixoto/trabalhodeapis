@@ -20,28 +20,6 @@ Ambos os serviços utilizam:
 
 ---
 
-## 🏗️ Arquitetura
-
-```
-TrabalhodeAPIs/
-├── Empresas.Api/          # API de Empresas
-│   ├── Controllers/       # Controladores HTTP
-│   ├── Models/           # Entidades de domínio
-│   ├── DTOs/             # Data Transfer Objects
-│   ├── Data/             # DbContext e configurações
-│   └── Migrations/       # Migrações do EF Core
-├── Funcionarios.Api/      # API de Funcionários
-│   ├── Controllers/      # Controladores HTTP
-│   ├── Models/          # Entidades de domínio
-│   ├── DTOs/            # Data Transfer Objects
-│   ├── Data/            # DbContext e configurações
-│   └── Migrations/      # Migrações do EF Core
-├── docker-compose.yml    # Configuração do MySQL
-└── .env                  # Variáveis de ambiente
-```
-
----
-
 ## 🚀 Quickstart
 
 ### Pré-requisitos
@@ -69,12 +47,15 @@ DB_ROOT_PASSWORD=root_senha_segura
 DB_DATA_PATH=./Data
 ```
 
-#### 3. Inicie o MySQL com Docker
+#### 3. Crie a pasta de volume do banco de dados
+Crie uma pasta `Data` na raiz do projeto para servir como volume do MySQL
+
+#### 4. Inicie o MySQL com Docker
 ```bash
 docker-compose up -d
 ```
 
-#### 4. Restaure as dependências e execute as migrações
+#### 5. Restaure as dependências e execute as migrações
 ```bash
 # Para Empresas.Api
 cd Empresas.Api
@@ -144,32 +125,6 @@ Cada API possui documentação interativa via Swagger:
 
 ---
 
-## 📦 Modelos de Dados
-
-### Empresa
-```csharp
-public class Empresa
-{
-    public int Id { get; set; }
-    public required string Nome { get; set; }              
-    public required string Endereco { get; set; }
-    public required string Telefone { get; set; }
-}
-```
-
-### Funcionário
-```csharp
-public class Funcionario
-{
-    public int Id { get; set; }
-    public required string Nome { get; set; }
-    public required string Cargo { get; set; }
-    public decimal Salario { get; set; }
-}
-```
-
----
-
 ## 🛠️ Tecnologias
 
 - **Runtime**: .NET 7.0+
@@ -179,27 +134,6 @@ public class Funcionario
 - **Containerização**: Docker
 - **Documentação API**: Swagger/OpenAPI
 - **Validation**: Data Annotations
-
----
-
-## 🔧 Desenvolvimento
-
-### Criar uma migração
-```bash
-cd Empresas.Api
-dotnet ef migrations add NomeDaMigracao
-dotnet ef database update
-```
-
-### Listar migrações pendentes
-```bash
-dotnet ef migrations list
-```
-
-### Remover última migração
-```bash
-dotnet ef migrations remove
-```
 
 ---
 
