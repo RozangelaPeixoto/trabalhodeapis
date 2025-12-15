@@ -1,0 +1,34 @@
+@Api_HostAddress = http://localhost:5001
+@FuncionarioId = 2
+
+### Listar funcionários
+GET {{Api_HostAddress}}/api/v1/funcionarios
+Accept: application/json
+
+### Buscar funcionário por ID
+GET {{Api_HostAddress}}/api/v1/funcionarios/{{FuncionarioId}}
+Accept: application/json
+
+### Criar funcionário
+POST {{Api_HostAddress}}/api/v1/funcionarios
+Content-Type: application/json
+
+{
+  "nome": "Jane Silva",
+  "cargo": "Desenvolvedor Sênior",
+  "salario": 8500.00
+}
+
+### Atualizar funcionário
+PUT {{Api_HostAddress}}/api/v1/funcionarios/{{FuncionarioId}}
+Content-Type: application/json
+
+{
+  "nome": "João Silva Santos",
+  "cargo": "Desenvolvedor Líder",
+  "salario": 9500.00
+}
+
+### Deletar funcionário
+DELETE {{Api_HostAddress}}/api/v1/funcionarios/{{FuncionarioId}}
+Accept: application/json

@@ -1,0 +1,34 @@
+@Api_HostAddress = http://localhost:5000
+@EmpresaId = 15
+
+### Listar empresas
+GET {{Api_HostAddress}}/api/v1/empresas
+Accept: application/json
+
+### Buscar empresa por ID
+GET {{Api_HostAddress}}/api/v1/empresas/{{EmpresaId}}
+Accept: application/json
+
+### Criar empresa
+POST {{Api_HostAddress}}/api/v1/empresas
+Content-Type: application/json
+
+{
+	"nome": "Tech Solutions Ltda",
+	"endereco": "Rua das Flores, 123",
+	"telefone": "11 99999-9999"
+}
+
+### Atualizar empresa
+PUT {{Api_HostAddress}}/api/v1/empresas/{{EmpresaId}}
+Content-Type: application/json
+
+{
+	"nome": "Tech Solutions Ltda - Atualizada",
+	"endereco": "Avenida Central, 500",
+	"telefone": "11 98888-7777"
+}
+
+### Deletar empresa
+DELETE {{Api_HostAddress}}/api/v1/empresas/{{EmpresaId}}
+Accept: application/json
